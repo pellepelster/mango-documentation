@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>The Model | Mango Documentation</title>
+        <title>Project | Mango Documentation</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.3">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../the_model/project.html" />
+    <link rel="next" href="../the_model/ui.html" />
     
     
-    <link rel="prev" href="../project_setup/README.html" />
+    <link rel="prev" href="../the_model/README.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="3" data-basepath=".." data-revision="1415655827572">
+    <div class="book"  data-level="3.1" data-basepath=".." data-revision="1415655827572">
     
 
 <div class="book-summary">
@@ -97,7 +97,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="3" data-path="the_model/README.html">
+        <li class="chapter " data-level="3" data-path="the_model/README.html">
             
                 
                     <a href="../the_model/README.html">
@@ -114,7 +114,7 @@
                 
     
         
-        <li class="chapter " data-level="3.1" data-path="the_model/project.html">
+        <li class="chapter active" data-level="3.1" data-path="the_model/project.html">
             
                 
                     <a href="../the_model/project.html">
@@ -255,10 +255,52 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_30">
+                    <section class="normal" id="section-gitbook_31">
                     
-                        <h1 id="the-model">The Model</h1>
-<p>This chapter describes the model that builds the foundation for all Mango projects. The model is text based (backed by <a href="https://www.xtext.org" target="_blank">Xtext</a>) and therefore comes with all amenities of the Eclipse IDE (synatax highlighting, auto-complete, outline view, ...). The model provides facilities to create entities, generic CRUD interfaces for these entities as well as services (REST, SOAP).</p>
+                        <h1 id="project">Project</h1>
+<p>Each model starts with a model root marked by the keyword <strong>project</strong> followed by the name of the project. The project name is used in a variety of places as name for the generated artefacts.</p>
+<p><strong>model exmaple</strong></p>
+<pre><code>project Project1 {
+}
+</code></pre><p>The above example is the smallest possible valid model. Despite no real model elements are contained in this model, the generator will nevertheless generate a bunch of artefacts.
+The artefacts are generated each time the model is changed inside Eclipse, to call the generator from command line, run</p>
+<p><code>../gradlew :project1-model:build</code></p>
+<p>inside the build project directory. After the generator run, three directories are created in the model project directory:</p>
+<pre><code>$ls project1-model
+[...]
+src-gen-server
+src-gen-client-gwt
+src-gen-xml
+</code></pre><p>Each directory contains a specific type of generated artefacts.</p>
+<h3 id="server-artifacts-src-gen-server">Server Artifacts (src-gen-server)</h3>
+<p>Contains all generated Spring beans, application context definitions, JPA entities, entity import/export webservice endpoints, service rest controllers.</p>
+<p><strong>Application Context definitions</strong></p>
+<p>Based on the name of the project model a set of application contexts is generated, each covering a single aspect of Mangos functionality. Each file has a <em>-gen.xml</em> postfix to denote that this file is generated.</p>
+<pre><code>$ls project1-model/src-gen-server
+[...]
+Project1BaseApplicationContext-gen.xml
+Project1DB-gen.xml
+Project1GWTRemoteServices-gen.xml
+Project1RestRemoteServices-gen.xml
+Project1SpringServices-gen.xml
+Project1Webservices-gen.xml
+</code></pre><p><strong>BaseApplicationContext-gen.xml</strong></p>
+<p>Definitions for all generated Spring beans that are not derived from the service model</p>
+<p><strong>DB-gen.xml</strong></p>
+<p>Bean definitions for the persistence parted (datasource, persistence unit, entity manager factory, ...)</p>
+<p><strong>GWTRemoteServices-gen.xml</strong></p>
+<p>Exports all services for asynchronous usage with GWT RPC clients.</p>
+<p><strong>RestRemoteServices-gen.xml</strong></p>
+<p>Generic rest controllers to access services with HTTP-REST.</p>
+<p><strong>SpringServices-gen</strong></p>
+<p>Actual implementations for the modelled services.</p>
+<p><strong>Webservices-gen.xml</strong></p>
+<p>Generic import/export webservice endpoints for the modelled entities.</p>
+<h3 id="gwt-client-artifacts-src-gen-client-gwt">GWT Client Artifacts (src-gen-client-gwt)</h3>
+<p>The client artefacts contain value objects corresponding to the server entities, synchronous and asynchronous service interfaces and GWT module definitions.
+Also a complete copy of the UI model in the form of Java classes that can be understood by the UI interpreter.</p>
+<h3 id="xml-artifacts-src-gen-xml">XML Artifacts (src-gen-xml)</h3>
+<p>For each entity from the model a XML schema as well as a WSDL definition is generated that uses these schemas to provide import/export webservices for these entities.</p>
 
                     
                     </section>
@@ -269,10 +311,10 @@
         </div>
 
         
-        <a href="../project_setup/README.html" class="navigation navigation-prev " aria-label="Previous page: Project Setup"><i class="fa fa-angle-left"></i></a>
+        <a href="../the_model/README.html" class="navigation navigation-prev " aria-label="Previous page: The Model"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../the_model/project.html" class="navigation navigation-next " aria-label="Next page: Project"><i class="fa fa-angle-right"></i></a>
+        <a href="../the_model/ui.html" class="navigation navigation-next " aria-label="Next page: UI"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

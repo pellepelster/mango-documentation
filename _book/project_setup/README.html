@@ -18,7 +18,7 @@
     
     
     
-    <link rel="next" href="../project_setup/quickstart.html" />
+    <link rel="next" href="../the_model/README.html" />
     
     
     <link rel="prev" href="../installation/README.html" />
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="2" data-basepath=".." data-revision="1415653160604">
+    <div class="book"  data-level="2" data-basepath=".." data-revision="1415655827572">
     
 
 <div class="book-summary">
@@ -94,28 +94,6 @@
                 
             
             
-            <ul class="articles">
-                
-    
-        
-        <li class="chapter " data-level="2.1" data-path="project_setup/quickstart.html">
-            
-                
-                    <a href="../project_setup/quickstart.html">
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.1.</b>
-                        
-                         Quickstart
-                    </a>
-                
-            
-            
-        </li>
-    
-
-            </ul>
-            
         </li>
     
         
@@ -131,6 +109,44 @@
                     </a>
                 
             
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="3.1" data-path="the_model/project.html">
+            
+                
+                    <a href="../the_model/project.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                         Project
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.2" data-path="the_model/ui.html">
+            
+                
+                    <a href="../the_model/ui.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                         UI
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -239,9 +255,48 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_163">
+                    <section class="normal" id="section-gitbook_29">
                     
                         <h1 id="project-setup">Project Setup</h1>
+<h2 id="quickstart">Quickstart</h2>
+<p>Of course you can set up up the projects from scratch using the Eclipse new project wizard and write all files by hand. But because its easier and faster, we will begin with the Mango bootstrapper who will create a basic project setup to get you started.</p>
+<p>The bootstrapper is started with a package name and a project name based on which the projects will be created. To create an example project named Project1 with the root package path org.example.Project1 call the bootstrapper like this:</p>
+<p><code>curl https://raw.githubusercontent.com/pellepelster/mango/master/bootstrap.sh | bash -s org.example.Project1</code></p>
+<p>This will trigger the bootstrapper download and afterwards starts the project template creation and build.</p>
+<p><strong>Example build output</strong></p>
+<pre><code>downloading gradle wrapper to &#39;/tmp/tmp.D3QTdHbnns&#39;
+writing temporary gradle bootstrap file to &#39;/tmp/tmp.D3QTdHbnns/tmp.mu8PPkhs1J.gradle&#39;
+executing temporary gradle bootstrap file &#39;/tmp/tmp.D3QTdHbnns/tmp.mu8PPkhs1J.gradle&#39;
+extracting /home/pelle/.gradle/mango_development/io/pelle/mango/mango-bootstrap/0.0.7-20141107085009/mango-bootstrap-0.0.7-20141107085009.jar to /tmp/tmp.D3QTdHbnns ###/bootstrap.gradle### :extractBootstrapGradle BUILD SUCCESSFUL Total time: 4.254 secs
+temporary bootstrap returned bootstrap gradle file at &#39;/tmp/tmp.D3QTdHbnns//bootstrap.gradle&#39;
+starting bootstrap with: package name &#39;org.example&#39;, project name &#39;Project1&#39;, output dir &#39;/tmp&#39;
+copying templates to /home/pelle/tmp/project1
+:createWrapper
+:extractProjectTemplate
+:copyProjectTemplate
+
+[...]
+
+:project1-build:project1-server-web:eclipseJdt
+:project1-build:project1-server-web:eclipseProject
+:project1-build:project1-server-web:eclipse
+
+BUILD SUCCESSFUL
+</code></pre><p>After a while, a set of projects and additional files are created in a subfolder named after your project. The files being the Gradle wrapper <strong>(1)</strong> for building, the build project <strong>(2)</strong> acting as root project for a Gradle multiple project build, the client project <strong>(3)</strong> and server project <strong>(4)</strong> for client respectively server code and finally the model project <strong>(5)</strong> holding the Mango DSL model for the application as well as the generated artefacts.</p>
+<pre><code>$ ls project1/
+(1) gradle
+    gradlew
+    gradlew.bat
+(2) project1-build/
+(3) project1-client/
+(4) project1-server-web/
+(5) project1-model/
+</code></pre><p>To check if everything works, change into the build project directory, build the project and start it in a Jetty container by calling:</p>
+<pre><code>$ cd project1/project1-build/
+$ ./gradlew jettyEclipseRun
+</code></pre><p>After a while you are greeted with</p>
+<pre><code>:project1-server-web:jettyEclipseRun &gt; Running at http://localhost:9090/
+</code></pre><p>Open the url with the browser of yout choice and you will see the running example application.</p>
 
                     
                     </section>
@@ -255,7 +310,7 @@
         <a href="../installation/README.html" class="navigation navigation-prev " aria-label="Previous page: Installation"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../project_setup/quickstart.html" class="navigation navigation-next " aria-label="Next page: Quickstart"><i class="fa fa-angle-right"></i></a>
+        <a href="../the_model/README.html" class="navigation navigation-next " aria-label="Next page: The Model"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
