@@ -1,0 +1,465 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>Entity Model | Mango Documentation</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.0.3">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    
+    <link rel="next" href="../the_model/ui.html" />
+    
+    
+    <link rel="prev" href="../the_model/project.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+
+        
+    <div class="book"  data-level="3.2" data-basepath=".." data-revision="1415732269649">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1" data-path="installation/README.html">
+            
+                
+                    <a href="../installation/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         Installation
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="project_setup/README.html">
+            
+                
+                    <a href="../project_setup/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         Project Setup
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3" data-path="the_model/README.html">
+            
+                
+                    <a href="../the_model/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                         The Model
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="3.1" data-path="the_model/project.html">
+            
+                
+                    <a href="../the_model/project.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                         Project
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="3.2" data-path="the_model/entity_model.html">
+            
+                
+                    <a href="../the_model/entity_model.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                         Entity Model
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.3" data-path="the_model/ui.html">
+            
+                
+                    <a href="../the_model/ui.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                         UI Model
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4" data-path="configuration/README.html">
+            
+                
+                    <a href="../configuration/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                         Configuration
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Mango Documentation</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_11">
+                    
+                        <h1 id="entity-model">Entity Model</h1>
+<p>The basic building block you need before you start working with data when using JPA is to create a entities to work with data from a database (entities as in <a href="http://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model" target="_blank">entity relationship model</a> just to be clear). This chapter will outline the entity model that can be used to create such entities.</p>
+<h2 id="entity-model-basics">Entity model basics</h2>
+<p>Just like in a traditional ER diagram an entity is composed of attributes and references (in ER: relationships) to other entities. The notation is loosely based Java/JavaScript class definitions, so let’s start with a minimalistic example. Entity definitions start with the keyword <strong>entity</strong> followed by the name of that entity.</p>
+<p><strong>basic entity example</strong></p>
+<pre><code>entity Entity1 {
+    [...]
+}
+</code></pre><p>This example is pretty useless because it has no attributes, but lets nevertheless have a look at the generated code.</p>
+<p><strong>generated entity code example</strong></p>
+<pre><code class="lang-java"><span class="hljs-annotation">@Entity</span>
+<span class="hljs-annotation">@Table</span>(name = <span class="hljs-string">"entity1"</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Entity1</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseEntity</span> </span>{
+
+        <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> IEntityDescriptor&lt;Entity1&gt; ENTITY1 = <span class="hljs-keyword">new</span> EntityDescriptor&lt;Entity1&gt;(Entity1.class);
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> LongAttributeDescriptor ID = <span class="hljs-keyword">new</span> LongAttributeDescriptor(ENTITY1, <span class="hljs-string">"id"</span>);
+
+    <span class="hljs-annotation">@Id</span>
+    <span class="hljs-annotation">@Column</span>(name = <span class="hljs-string">"currency_id"</span>)
+    <span class="hljs-annotation">@GeneratedValue</span>(strategy = GenerationType.TABLE, generator = <span class="hljs-string">"currency_id_seq"</span>)
+    <span class="hljs-annotation">@SequenceGenerator</span>(name = <span class="hljs-string">"currency_id_seq"</span>, sequenceName = <span class="hljs-string">"currency_id_seq"</span>, allocationSize = <span class="hljs-number">1</span>)
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">long</span> id;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">long</span> <span class="hljs-title">getId</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.id;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setId</span><span class="hljs-params">(<span class="hljs-keyword">long</span> id)</span> </span>{
+        <span class="hljs-keyword">this</span>.id = id;
+    }
+
+}
+</code></pre>
+<p>From the above entity definition a plain JPA entity is generated. The name of the class and the underlying DB table (given by JPAs <em>@Table</em> annotation) is (as one would suspect) derived from the name of the entity. For each entity a <em>id</em> attribute is automatically generated to identify each entity instance, using a JPA table sequence generator. This may not always be the best option for every usecase, so this behavior can be tuned by the generator configuration.
+The interesting part are the two static fields that are also generated. these two fields provide meta information for the entity respectively the id field. These meta information is needed because the model may contain more information about an specific datatype than can not be expressed using simple Java types (for example the maximum or minimum size for an integer). Also the meta information provides type information for generic collections that would normally not be available due to Java <a href="https://docs.oracle.com/javase/tutorial/java/generics/erasure.html" target="_blank">type erasure</a>.</p>
+<p>Now lets add an attribute to the entity to make it finally useful:</p>
+<p><strong>entity attribute example</strong></p>
+<pre><code>entity Entity1 {
+    string stringAttribute1
+}
+</code></pre><p>Like in Java field definitions each attribute has a type and an attribute name. Lets again look at the generated source code.</p>
+<p><strong>generated attribute code example</strong></p>
+<pre><code class="lang-java"><span class="hljs-annotation">@Entity</span>
+<span class="hljs-annotation">@Table</span>(name = <span class="hljs-string">"entity1"</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Entity1</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseEntity</span> </span>{
+
+    <span class="hljs-comment">//[...]</span>
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> IAttributeDescriptor&lt;?&gt;[] getAttributeDescriptors() {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> IAttributeDescriptor[]{
+            STRINGATTRIBUTE1
+        };
+    }
+
+    <span class="hljs-annotation">@Column</span>(name = <span class="hljs-string">"entity1_stringattribute1"</span>)
+    <span class="hljs-keyword">private</span> String stringAttribute1;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> StringAttributeDescriptor STRINGATTRIBUTE1 = <span class="hljs-keyword">new</span> StringAttributeDescriptor(ENTITY1, <span class="hljs-string">"stringAttribute1"</span>, String.class, -<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">0</span>);
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getStringAttribute1</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.stringAttribute1;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setStringAttribute1</span><span class="hljs-params">(String stringAttribute1)</span> </span>{
+        getChangeTracker().addChange(<span class="hljs-string">"stringAttribute1"</span>, stringAttribute1);
+        <span class="hljs-keyword">this</span>.stringAttribute1 = stringAttribute1;
+    }
+}
+</code></pre>
+<p>To avoid collisions and from foreign keys the column names for the generated attributes are prefixed with the table name. Again an attribute descriptor providing meta information for the field is generated that can (alongside with all other generated attribute descriptors) be retrieved using the <em>getAttributeDescriptors</em> method.</p>
+<p>The benefit of these meta information fields is that they enable the DSL-like creation of JPA queries.</p>
+<p><strong>entity query example</strong></p>
+<pre><code class="lang-java">SelectQuery&lt;Entity1&gt; query = SelectQuery.selectFrom(Entity1.class).where(Entity1.STRINGDATATYPE1.eq(<span class="hljs-string">"abc"</span>));
+
+<span class="hljs-keyword">for</span> (Entity1 entity1 : dao.filter(query)) {
+    <span class="hljs-comment">// do something</span>
+}
+</code></pre>
+<p>Each attribute descriptor provides based on its type a variety of methods to create JPA expressions (equals/not equals/less than/....).</p>
+<h3 id="datatypes">Datatypes</h3>
+<p>The types used for entity attributes are derived from Javas simple types and therefore lack the possibility to express more informations about the datatype (maximum length for strings for example) Mango has a concept of datatypes that provides this facilities.</p>
+<blockquote>
+<p>The functionality has basically the same function that is described in the JSR 303 Bean Validaton API and may one day be merged with this.</p>
+</blockquote>
+<p><strong>entity datatype example</strong></p>
+<pre><code>stringdatatype StringDatatype1 {
+}
+
+entity Entity1 {
+    string StringDatatype1 stringAttribute1
+}
+</code></pre><p>The above example defines an string datatype that is used in the entity attribute <em>stringAttribute1</em> the generator output is exactly the same as in the above datatype less example. The fun parts begins when the extra datatype information is used.</p>
+<p><strong>entity datatype restrictions example</strong></p>
+<pre><code>stringdatatype StringDatatype1 {
+    maxLength 42
+    minLength 2
+}
+
+entity Entity1 {
+    string StringDatatype1 stringAttribute1
+}
+</code></pre><p>The above example restricts the dimensions of the string that may be stored in <em>stringAttribute1</em>.</p>
+<p><strong>generated datatype attribute code example</strong></p>
+<pre><code class="lang-java"><span class="hljs-annotation">@Entity</span>
+<span class="hljs-annotation">@Table</span>(name = <span class="hljs-string">"entity1"</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Entity1</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseEntity</span> </span>{
+
+    <span class="hljs-comment">//[...]</span>
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> StringAttributeDescriptor STRINGATTRIBUTE1 = <span class="hljs-keyword">new</span> StringAttributeDescriptor(ENTITY1, <span class="hljs-string">"stringAttribute1"</span>, String.class, <span class="hljs-number">2</span>, <span class="hljs-number">42</span>, <span class="hljs-number">0</span>);
+
+    <span class="hljs-comment">//[...]</span>
+
+}
+</code></pre>
+<p>The <strong>maxLength</strong>/<strong>minLength</strong> values are feed into the attribute descriptor via its constructor and checked before an entity is persisted. Therefore it is now impossible to persist entities with a <em>stringAttribute1</em> that shorter than 2 an longer that 42 characters.</p>
+<h3 id="value-objects">Value Objects</h3>
+<p>What may be confusing at first is the fact that for each entity an value object is generated that has basically the same attributes/attributes descriptors as the entity. Entities will never leave the server. All client facing interfaces work on base of value objects and not with entities.
+Mango internally copies the data back and forth between these two types. The value objects that are generated for each entity have additional facilities that circumvent the lack of reflection inside the GWT runtime inside the browser.</p>
+<p><strong>generated value object</strong></p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Entity1VO</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseVO</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">IInfoVOEntity</span> </span>{
+
+    <span class="hljs-comment">//[...]</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">get</span><span class="hljs-params">(String name)</span> </span>{
+
+        <span class="hljs-keyword">if</span> (<span class="hljs-string">"stringAttribute1"</span>.equals(name))
+        {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.stringAttribute1;
+        }
+
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">super</span>.get(name);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">set</span><span class="hljs-params">(String name, Object value)</span> </span>{
+
+        getChangeTracker().addChange(name, value);
+
+        <span class="hljs-keyword">if</span> (<span class="hljs-string">"stringAttribute1"</span>.equals(name))
+        {
+            setStringDatatype1((String) value);
+            <span class="hljs-keyword">return</span>;
+        }
+
+        <span class="hljs-keyword">super</span>.set(name, value);
+    }
+}
+</code></pre>
+<p>The above code example show the generated generic getters/setter for the entity attributes.</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../the_model/project.html" class="navigation navigation-prev " aria-label="Previous page: Project"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../the_model/ui.html" class="navigation navigation-next " aria-label="Next page: UI Model"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

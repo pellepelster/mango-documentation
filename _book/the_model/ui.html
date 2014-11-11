@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>UI | Mango Documentation</title>
+        <title>UI Model | Mango Documentation</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.3">
@@ -21,7 +21,7 @@
     <link rel="next" href="../configuration/README.html" />
     
     
-    <link rel="prev" href="../the_model/project.html" />
+    <link rel="prev" href="../the_model/entity_model.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="3.2" data-basepath=".." data-revision="1415655827572">
+    <div class="book"  data-level="3.3" data-basepath=".." data-revision="1415732269649">
     
 
 <div class="book-summary">
@@ -130,15 +130,31 @@
         </li>
     
         
-        <li class="chapter active" data-level="3.2" data-path="the_model/ui.html">
+        <li class="chapter " data-level="3.2" data-path="the_model/entity_model.html">
+            
+                
+                    <a href="../the_model/entity_model.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                         Entity Model
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="3.3" data-path="the_model/ui.html">
             
                 
                     <a href="../the_model/ui.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>3.2.</b>
+                            <b>3.3.</b>
                         
-                         UI
+                         UI Model
                     </a>
                 
             
@@ -255,16 +271,102 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_32">
+                    <section class="normal" id="section-gitbook_13">
                     
                         <h1 id="ui">UI</h1>
-<p>The overall goal for the UI DSL is to provide a simple generic way to <strong>C</strong>reate <strong>R</strong>ead <strong>U</strong>pdate and <strong>D</strong>elete data from database entities (which also are modelled in the same DSL, see [The Entity Model]).
-The UI is roughly divided in two parts, first the search consisting of a filter where filter criterias can be entered and the result table listing the actual search results for all entities matching the filter criterias. The entity then can be opened in an editor which provides facilities to edit and save the data, as well creation of new entities.
-From the UI model DSL a set of classes is generated for each dictionary containing the model informations in a in a way the dictionary interpreter can work with it. The interpreter then builds an abstract runtime model for all dictionary elements (searches, filters, editors, controls, tables, composites, …). The actual GWT based UI implementation then connects to this abstract model using a callback mechanisms.
+<p>The overall goal for the UI DSL is to provide a simple generic way to <strong>C</strong>reate <strong>R</strong>ead <strong>U</strong>pdate and <strong>D</strong>elete data entities (which also are modeled in the same DSL, see [The Entity Model]).
+Each generic UI is divided in two parts, first the search which is made up of a filter where filter criterias can be entered and the result table listing the actual search results for all entities matching the filter criterias. The found entity data then can be opened in an editor that provides facilities to edit and save the data or to create new entities.
+From the UI model DSL a set of classes is generated for each dictionary containing the model informations in a in a way the dictionary interpreter can work with it. The interpreter then builds an abstract runtime model for all dictionary elements (searches, filters, editors, controls, tables, composites, …). The actual GWT based UI implementation then connects to this abstract runtime model using a callback mechanisms.
 The abstraction of the dictionary runtime comes with the benefit of the capability to add another UI implementation, in this case a simple Junit layer that can be used to test the dictionary.
-The generated Java model classed also provide extensions points where you can hook in you own code, to alter the default behaviour of the dictionary interpreter where needed.</p>
+The generated Java model classed also provide extensions points where you can hook in you own code, to alter the default behavior of the dictionary interpreter where needed.</p>
 <p><img src="ui_model1.png" alt="ui_model1.png" title="UI Model Overview"></p>
+<h2 id="ui-model-basics">UI Model Basics</h2>
+<p>This chapter will outline some basic functions of the UI model, for detailed descriptions of each UI  model element see the following chapters. Each UI model (from now on called dictionary) starts with the <strong>dictionary</strong> keyword followed by a name for the dictionary. The dictionary is the outer logical unit around the search and editor for an specific <strong>entity</strong> that is given by the <strong>entity</strong> keyword in the dictionary definition.</p>
+<p><strong>basic dictionary definition</strong></p>
+<pre><code>entity Entity1 {
+    [...]
+}
 
+dictionary Dictionary1 {
+
+    entity Entity1
+
+    [...]
+}
+</code></pre><p>There are (as in nearly every UI framework) two types of UI elements, container and controls. Controls like for example text controls/date controls/... are directly mapped to entity attributes with the matching type using the keyword <strong>entityattribute</strong>. Because a control for a single entity attribute is likely to be used in multiple places, the dictionary provides the possibility to define a common set of controls that may be reused in other parts of the model. The <em>stringAttribute1</em> for example may be used as a text control in a filter so search for entities with this attribute, in the search result to display the actual content and finally in the editor to edit data for this attribute.</p>
+<p><strong>text control definition</strong></p>
+<pre><code>entity Entity1 {
+    string stringAttribute1
+}
+
+dictionary Dictionary1 {
+
+    entity Entity1
+
+    dictionarycontrols {
+        TextControl1 {
+            entityattribute stringAttribute1
+        }
+    }
+    [...]
+}
+</code></pre><p>The now defined control can subsequently be used in an dictionary editor definition. The following example defines an editor named <em>Editor1</em> containing one <strong>textcontrol</strong> that just <strong>ref</strong>ers  to the already defined <strong>textcontrol</strong> <em>TextControl1</em>.</p>
+<p><strong>usage of a defined text control</strong></p>
+<pre><code>[...]
+
+dictionary Dictionary1 {
+
+    entity Entity1
+
+    dictionarycontrols {
+        TextControl1 {
+            entityattribute stringAttribute1
+        }
+    }
+
+    dictionaryeditor Editor1 {
+        textcontrol ref TextControl1
+    }
+}
+</code></pre><p>Like datatypes the control definitions also support the a simple inheritance model, for example the maximum text length that may entered in a text control can be influenced by the <strong>maxLength</strong> keyword.</p>
+<p><strong>setting control properties</strong></p>
+<pre><code>[...]
+
+dictionary Dictionary1 {
+
+    [...]
+
+    dictionarycontrols {
+        TextControl1 {
+            entityattribute stringAttribute1
+            maxLength 42
+        }
+    }
+
+    [...]
+}
+</code></pre><p>Now if this control is reused somewhere this attribute may be overridden where used.</p>
+<p><strong>overriding a control attribute</strong></p>
+<pre><code>[...]
+
+dictionary Dictionary1 {
+
+    [...]
+
+    dictionarycontrols {
+        TextControl1 {
+            entityattribute stringAttribute1
+            maxLength 42
+        }
+    }
+
+    dictionaryeditor Editor1 {
+        textcontrol ref TextControl1 {
+            maxLength 23
+        }
+    }
+}
+</code></pre>
                     
                     </section>
                 
@@ -274,7 +376,7 @@ The generated Java model classed also provide extensions points where you can ho
         </div>
 
         
-        <a href="../the_model/project.html" class="navigation navigation-prev " aria-label="Previous page: Project"><i class="fa fa-angle-left"></i></a>
+        <a href="../the_model/entity_model.html" class="navigation navigation-prev " aria-label="Previous page: Entity Model"><i class="fa fa-angle-left"></i></a>
         
         
         <a href="../configuration/README.html" class="navigation navigation-next " aria-label="Next page: Configuration"><i class="fa fa-angle-right"></i></a>
