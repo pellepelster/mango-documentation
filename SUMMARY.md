@@ -7,5 +7,7 @@
    * [Project](model/project.md)
    * [Entity Model](model/entity_model.md)
    * [UI Model](model/ui_model.md)
+* [Services](services/README.md)
+   * [Mail](services/mail.md)
 * [Configuration](configuration/README.md)
 
