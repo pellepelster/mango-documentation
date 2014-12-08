@@ -9,5 +9,6 @@
    * [UI Model](model/ui_model.md)
 * [Services](services/README.md)
    * [Mail](services/mail.md)
+   * [Logging](services/logging.md)
 * [Configuration](configuration/README.md)
 
