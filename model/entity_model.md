@@ -192,3 +192,43 @@ The *IBaseEntityService* provides some higher level persistence functions as wel
 ![mango_entity_services1.png](mango_entity_services1.png "Entity Services")
 
 
+### Entity Options
+The entity model provides several options that control the general behavior of the generated entities.
+The options are defined in a entity options block inside the entity definition:
+
+**entity options example**
+```
+entity Entity1 {
+
+    entityoptions {
+        [...]
+    }
+
+    [...]
+}
+```
+#### Natural Key
+
+
+#### Entity Label
+
+When an human readable representation of an entity instance is needed (the entity name itself tends to be very technical) you can model the text used for this purpose with the following options:
+
+**entity label example**
+```
+entity Entity1 {
+    entityoptions {
+        label "Country"
+        pluralLabel "Countries"
+    }
+    naturalkey {
+        name
+    }
+
+    string name
+
+}
+```
+
+The *label* is used when a descriptive text is needed for the entity, for example the above entity would be displayed as *"...added **Country** Germany..." to the list...* or if the entity is used in a context where more than one entity has to be described *"... 5 **Countries** found"*.
+
