@@ -7,7 +7,7 @@
    * [Project](model/project.md)
    * [Entity Model](model/entity_model.md)
    * [UI Model](model/ui_model.md)
-   * [Dictionary Model](model/dcitionary_model.md)
+   * [Dictionary Model](model/dictionary_model.md)
 * [Persistence](persistence/README.md)
    * [Query Language](persistence/query_language.md)
 * [Services](services/README.md)
