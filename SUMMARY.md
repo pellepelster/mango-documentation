@@ -10,6 +10,8 @@
    * [Dictionary Model](model/dictionary_model.md)
 * [Persistence](persistence/README.md)
    * [Query Language](persistence/query_language.md)
+* [Dictionary](dictionary/README.md)
+   * [Hooks](dictionary/hooks.md)
 * [Services](services/README.md)
    * [Mail](services/mail.md)
    * [Logging](services/logging.md)
