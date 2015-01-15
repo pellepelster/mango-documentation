@@ -51,3 +51,7 @@ results in a different color for all rows matching the criteria in the hook
 
 **running row style hook example**
 ![base_table_hook1.png](base_table_hook1.png "Base Table Hook Example")
+
+## Search
+
+### Create Button

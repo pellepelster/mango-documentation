@@ -115,5 +115,46 @@ dictionary Dictionary1 {
 }
 ```
 
+## Controls
+
+### Common control properties
+
+All control definitions share a common set of properties influencing behavior that is shared by all control types.
+
+#### Entityattribute
+#### Labels
+#### Mandatory
+
+#### Width
+The width determines the size of the input control, unit of this value is characters. So a text control having he size 12 would be big enough to show 12 characters. The width may be inherited from a datatype definition (see common datatype properties in the entity model description)
+
+**control width example**
+```
+stringdatatype StringDatatype1 {
+    width 32
+}
+
+entity Entity1 {
+    string StringDatatype1 stringAttribute1
+}
+
+dictionary Dictionary1 {
+    entity Entity1
+
+	dictionarycontrols {
+		textcontrol TextControl1 {
+			entityattribute Entity1.stringAttribute1
+		}
+		textcontrol TextControl2 {
+			entityattribute Entity1.stringAttribute1
+			width 64
+		}
+	}
+}
+```
+
+In the above example the control *TextControl1* will have the size to display 32 character, whereas the *TextControl2* will be twice the size (because the size is overridden).
+
+#### Readonly
 
 

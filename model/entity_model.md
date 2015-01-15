@@ -229,6 +229,73 @@ entity Entity1 {
 
 }
 ```
-
 The *label* is used when a descriptive text is needed for the entity, for example the above entity would be displayed as *"...added **Country** Germany..." to the list...* or if the entity is used in a context where more than one entity has to be described *"... 5 **Countries** found"*.
 
+## Datatypes
+
+### Common properties
+
+All datatypes share a common set of properties that are used by all datatypes. These are described in this chapter.
+
+#### Width
+
+Sooner or later the data described by the datatype has to be displayed somehow to the user, or the user has the ability (e.g. an input field in a web form) to enter some data. To give the actual UI layer implementation a hint how big the input field has to be, the width property can be used. 
+The most common use case for defining the width in the datatype is when the datatype is used among many different dictionaries (UI models) to avoid spreading the width definition over different places in the model and it may be overwritten later in the UI model.
+
+**datatype width example**
+```
+stringdatatype StringDatatype1 {
+    width 32
+}
+
+entity Entity1 {
+    string StringDatatype1 stringAttribute1
+}
+
+dictionary Dictionary1 {
+    entity Entity1
+    
+	dictionarycontrols {
+		textcontrol TextControl1 {
+			entityattribute Entity1.stringAttribute1
+		}
+		textcontrol TextControl2 {
+			entityattribute Entity1.stringAttribute1
+			width 64 
+		}
+	}
+}
+```
+
+In the above example the control *TextControl1* will have the size to display 32 character, whereas the *TextControl2* will be twice the size (because the size is overridden).
+
+#### Label
+
+The label property has nearly the same semantic as the previously mentioned width property. Here a label text that is used when the value described by a datatype needs to be labeled on the UI can be modeled. Controls using this datatype inherit this label and it can again be overridden in the control definition if needed.
+
+**datatype label example**
+```
+stringdatatype StringDatatype1 {
+    label "Abc"
+}
+
+entity Entity1 {
+    string StringDatatype1 stringAttribute1
+}
+
+dictionary Dictionary1 {
+    entity Entity1
+    
+	dictionarycontrols {
+		textcontrol TextControl1 {
+			entityattribute Entity1.stringAttribute1
+		}
+		textcontrol TextControl2 {
+			entityattribute Entity1.stringAttribute1
+			label "Xyz"
+		}
+	}
+}
+```
+
+The textcontrol *TextControl1* from the above example inherits it's label from the datatype (Abc: [input field]) and the *TextControl2* uses its own label (Xyz: [input field])
