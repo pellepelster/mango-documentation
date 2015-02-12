@@ -145,10 +145,6 @@ dictionary Dictionary1 {
 		textcontrol TextControl1 {
 			entityattribute Entity1.stringAttribute1
 		}
-		textcontrol TextControl2 {
-			entityattribute Entity1.stringAttribute1
-			width 64
-		}
 	}
 }
 ```
@@ -157,4 +153,53 @@ In the above example the control *TextControl1* will have the size to display 32
 
 #### Readonly
 
+### IntegerControl
 
+As the name say, the IntegerControl is for input of numbers without fractions. The control takes care of formatting and input validation to ensure that only valid integers are entered.
+
+**integercontrol example**
+```
+integerdatatype IntegerDatatype1 {
+}
+
+entity Entity1 {
+    integer IntegerDatatype1 integerDatatype1
+}
+
+dictionary Dictionary1 {
+    entity Entity1
+
+	dictionarycontrols {
+		textcontrol IntegerControl1 {
+			entityattribute Entity1.integerDatatype1
+		}
+	}
+}
+```
+
+#### Rating
+
+The IntegerControl supports different input types, the default type is `textbox`  as described above.
+Additionaly the type `rating` is supported, that (when activated) display a five star rating widget.
+
+**integercontrol rating example**
+
+```
+integerdatatype IntegerDatatype1 {
+}
+
+entity Entity1 {
+    integer IntegerDatatype1 integerDatatype1
+}
+
+dictionary Dictionary1 {
+    entity Entity1
+
+	dictionarycontrols {
+		textcontrol IntegerControl1 {
+			entityattribute Entity1.integerDatatype1
+			inputtype rating
+		}
+	}
+}
+```

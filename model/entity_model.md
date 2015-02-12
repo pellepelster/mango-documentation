@@ -239,7 +239,7 @@ All datatypes share a common set of properties that are used by all datatypes. T
 
 #### Width
 
-Sooner or later the data described by the datatype has to be displayed somehow to the user, or the user has the ability (e.g. an input field in a web form) to enter some data. To give the actual UI layer implementation a hint how big the input field has to be, the width property can be used. 
+Sooner or later the data described by the datatype has to be displayed somehow to the user, or the user has the ability (e.g. an input field in a web form) to enter some data. To give the actual UI layer implementation a hint how big the input field has to be, the width property can be used.
 The most common use case for defining the width in the datatype is when the datatype is used among many different dictionaries (UI models) to avoid spreading the width definition over different places in the model and it may be overwritten later in the UI model.
 
 **datatype width example**
@@ -254,14 +254,14 @@ entity Entity1 {
 
 dictionary Dictionary1 {
     entity Entity1
-    
+
 	dictionarycontrols {
 		textcontrol TextControl1 {
 			entityattribute Entity1.stringAttribute1
 		}
 		textcontrol TextControl2 {
 			entityattribute Entity1.stringAttribute1
-			width 64 
+			width 64
 		}
 	}
 }
@@ -285,7 +285,7 @@ entity Entity1 {
 
 dictionary Dictionary1 {
     entity Entity1
-    
+
 	dictionarycontrols {
 		textcontrol TextControl1 {
 			entityattribute Entity1.stringAttribute1

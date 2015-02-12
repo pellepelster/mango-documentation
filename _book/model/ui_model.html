@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="3.3" data-basepath=".." data-revision="1420659504493">
+    <div class="book"  data-level="3.3" data-basepath=".." data-revision="1423727691249">
     
 
 <div class="book-summary">
@@ -313,13 +313,51 @@
         </li>
     
         
-        <li class="chapter " data-level="7" data-path="configuration/README.html">
+        <li class="chapter " data-level="7" data-path="api/api.html">
+            
+                
+                    <a href="../api/api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                         API
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="7.1" data-path="api/entity_api.html">
+            
+                
+                    <a href="../api/entity_api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                         Entity API
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8" data-path="configuration/README.html">
             
                 
                     <a href="../configuration/README.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>7.</b>
+                            <b>8.</b>
                         
                          Configuration
                     </a>
@@ -417,7 +455,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_11">
+                    <section class="normal" id="section-gitbook_14">
                     
                         <h1 id="ui">UI</h1>
 <p>The overall goal for the UI DSL is to provide a simple generic way to <strong>C</strong>reate <strong>R</strong>ead <strong>U</strong>pdate and <strong>D</strong>elete data entities (which also are modeled in the same DSL, see [The Entity Model]).
@@ -509,6 +547,74 @@ dictionary Dictionary1 {
     dictionaryeditor Editor1 {
         textcontrol ref TextControl1 {
             maxLength 23
+        }
+    }
+}
+</code></pre><h2 id="controls">Controls</h2>
+<h3 id="common-control-properties">Common control properties</h3>
+<p>All control definitions share a common set of properties influencing behavior that is shared by all control types.</p>
+<h4 id="entityattribute">Entityattribute</h4>
+<h4 id="labels">Labels</h4>
+<h4 id="mandatory">Mandatory</h4>
+<h4 id="width">Width</h4>
+<p>The width determines the size of the input control, unit of this value is characters. So a text control having he size 12 would be big enough to show 12 characters. The width may be inherited from a datatype definition (see common datatype properties in the entity model description)</p>
+<p><strong>control width example</strong></p>
+<pre><code>stringdatatype StringDatatype1 {
+    width 32
+}
+
+entity Entity1 {
+    string StringDatatype1 stringAttribute1
+}
+
+dictionary Dictionary1 {
+    entity Entity1
+
+    dictionarycontrols {
+        textcontrol TextControl1 {
+            entityattribute Entity1.stringAttribute1
+        }
+    }
+}
+</code></pre><p>In the above example the control <em>TextControl1</em> will have the size to display 32 character, whereas the <em>TextControl2</em> will be twice the size (because the size is overridden).</p>
+<h4 id="readonly">Readonly</h4>
+<h3 id="integercontrol">IntegerControl</h3>
+<p>As the name say, the IntegerControl is for input of numbers without fractions. The control takes care of formatting and input validation to ensure that only valid integers are entered.</p>
+<p><strong>integercontrol example</strong></p>
+<pre><code>integerdatatype IntegerDatatype1 {
+}
+
+entity Entity1 {
+    integer IntegerDatatype1 integerDatatype1
+}
+
+dictionary Dictionary1 {
+    entity Entity1
+
+    dictionarycontrols {
+        textcontrol IntegerControl1 {
+            entityattribute Entity1.integerDatatype1
+        }
+    }
+}
+</code></pre><h4 id="rating">Rating</h4>
+<p>The IntegerControl supports different input types, the default type is <code>textbox</code>  as described above.
+Additionaly the type <code>rating</code> is supported, that (when activated) display a five star rating widget.</p>
+<p><strong>integercontrol rating example</strong></p>
+<pre><code>integerdatatype IntegerDatatype1 {
+}
+
+entity Entity1 {
+    integer IntegerDatatype1 integerDatatype1
+}
+
+dictionary Dictionary1 {
+    entity Entity1
+
+    dictionarycontrols {
+        textcontrol IntegerControl1 {
+            entityattribute Entity1.integerDatatype1
+            inputtype rating
         }
     }
 }

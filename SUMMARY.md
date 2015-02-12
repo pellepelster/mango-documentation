@@ -15,5 +15,7 @@
 * [Services](services/README.md)
    * [Mail](services/mail.md)
    * [Logging](services/logging.md)
+* [API](api/api.md)
+   * [Entity API](api/entity_api.md)
 * [Configuration](configuration/README.md)
 

@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="3.2" data-basepath=".." data-revision="1420659504493">
+    <div class="book"  data-level="3.2" data-basepath=".." data-revision="1423727691249">
     
 
 <div class="book-summary">
@@ -313,13 +313,51 @@
         </li>
     
         
-        <li class="chapter " data-level="7" data-path="configuration/README.html">
+        <li class="chapter " data-level="7" data-path="api/api.html">
+            
+                
+                    <a href="../api/api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                         API
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="7.1" data-path="api/entity_api.html">
+            
+                
+                    <a href="../api/entity_api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                         Entity API
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8" data-path="configuration/README.html">
             
                 
                     <a href="../configuration/README.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>7.</b>
+                            <b>8.</b>
                         
                          Configuration
                     </a>
@@ -417,7 +455,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_9">
+                    <section class="normal" id="section-gitbook_12">
                     
                         <h1 id="entity-model">Entity Model</h1>
 <p>The basic building block you need before you start working with data when using JPA is to create a entities to work with data from a database (entities as in <a href="http://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model" target="_blank">entity relationship model</a> just to be clear). This chapter will outline the entity model that can be used to create such entities.</p>
@@ -603,6 +641,60 @@ The options are defined in a entity options block inside the entity definition:<
 
 }
 </code></pre><p>The <em>label</em> is used when a descriptive text is needed for the entity, for example the above entity would be displayed as <em>&quot;...added <strong>Country</strong> Germany...&quot; to the list...</em> or if the entity is used in a context where more than one entity has to be described <em>&quot;... 5 <strong>Countries</strong> found&quot;</em>.</p>
+<h2 id="datatypes">Datatypes</h2>
+<h3 id="common-properties">Common properties</h3>
+<p>All datatypes share a common set of properties that are used by all datatypes. These are described in this chapter.</p>
+<h4 id="width">Width</h4>
+<p>Sooner or later the data described by the datatype has to be displayed somehow to the user, or the user has the ability (e.g. an input field in a web form) to enter some data. To give the actual UI layer implementation a hint how big the input field has to be, the width property can be used.
+The most common use case for defining the width in the datatype is when the datatype is used among many different dictionaries (UI models) to avoid spreading the width definition over different places in the model and it may be overwritten later in the UI model.</p>
+<p><strong>datatype width example</strong></p>
+<pre><code>stringdatatype StringDatatype1 {
+    width 32
+}
+
+entity Entity1 {
+    string StringDatatype1 stringAttribute1
+}
+
+dictionary Dictionary1 {
+    entity Entity1
+
+    dictionarycontrols {
+        textcontrol TextControl1 {
+            entityattribute Entity1.stringAttribute1
+        }
+        textcontrol TextControl2 {
+            entityattribute Entity1.stringAttribute1
+            width 64
+        }
+    }
+}
+</code></pre><p>In the above example the control <em>TextControl1</em> will have the size to display 32 character, whereas the <em>TextControl2</em> will be twice the size (because the size is overridden).</p>
+<h4 id="label">Label</h4>
+<p>The label property has nearly the same semantic as the previously mentioned width property. Here a label text that is used when the value described by a datatype needs to be labeled on the UI can be modeled. Controls using this datatype inherit this label and it can again be overridden in the control definition if needed.</p>
+<p><strong>datatype label example</strong></p>
+<pre><code>stringdatatype StringDatatype1 {
+    label &quot;Abc&quot;
+}
+
+entity Entity1 {
+    string StringDatatype1 stringAttribute1
+}
+
+dictionary Dictionary1 {
+    entity Entity1
+
+    dictionarycontrols {
+        textcontrol TextControl1 {
+            entityattribute Entity1.stringAttribute1
+        }
+        textcontrol TextControl2 {
+            entityattribute Entity1.stringAttribute1
+            label &quot;Xyz&quot;
+        }
+    }
+}
+</code></pre><p>The textcontrol <em>TextControl1</em> from the above example inherits it&#39;s label from the datatype (Abc: [input field]) and the <em>TextControl2</em> uses its own label (Xyz: [input field])</p>
 
                     
                     </section>
