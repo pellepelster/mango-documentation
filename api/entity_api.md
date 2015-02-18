@@ -1,9 +1,9 @@
-# Entity API
+﻿# Entity API
 
 ## REST
 
-For each entity a REST API is generated that can be reached via the base URL 
-`http://{url}/remote/entity/country/api/rest/{action}` the available `{action}s` provide several way the access the entites in the system which are described in the following chapters.
+For each entity a REST API is generated that can be reached via the base URL
+`http://{url}/remote/api/entity/country/{action}` the available `{action}s` provide several way the access the entites in the system which are described in the following chapters.
 
 ## Load by id
 
@@ -11,8 +11,8 @@ If you know the id of the entity you want to load, you can use `{baseUrl}/byid/{
 
 **load by id example**
 
-```
-$ curl http://mango-demo-dev.elasticbeanstalk.com/remote/entity/country/api/rest/byid/1
+```bash
+$ curl http://mango-demo-dev.elasticbeanstalk.com/remote/api/entity/country/byid/1
 
 {
   "id": 1,
@@ -30,8 +30,8 @@ If the entity has an natural key, this key can also be used to load the entity u
 
 **load by natural key example**
 
-```
-$ curl http://mango-demo-dev.elasticbeanstalk.com/remote/entity/country/api/rest/bynaturalkey/af
+```bash
+$ curl http://mango-demo-dev.elasticbeanstalk.com/remote/api/entity/country/bynaturalkey/af
 
 {
   "id": 1,
@@ -51,7 +51,7 @@ The expression is based on the [Spring Expression Language (SpEL)](http://docs.s
 **load by query expression example**
 
 ```
-$ curl http://mango-demo-dev.elasticbeanstalk.com/remote/entity/country/api/rest/query?query=countryName%20matches%20%27a%%27
+$ curl http://mango-demo-dev.elasticbeanstalk.com/remote/api/entity/country/query?query=countryName%20matches%20%27a%%27
 
 [
     {
@@ -74,7 +74,7 @@ $ curl http://mango-demo-dev.elasticbeanstalk.com/remote/entity/country/api/rest
       "countryName": "Virgin Islands, U.s.",
       [...]
     }
-]  
+]
 ```
 
 ## Expressions
@@ -82,7 +82,7 @@ $ curl http://mango-demo-dev.elasticbeanstalk.com/remote/entity/country/api/rest
 The expression syntax is loosely based on Java/JavaScript (see [SpEL documentation](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html) for more info). All attributes that are modeled in the entity model can be used, combined with a set of comparators and the usual **||** and **&&** boolean operators as well as brackets **()**.
 
 **example expression**
-```
+```bash
 countryName == 'France' || (countryCode > 23 && countryName matches 'Ger%')
 ```
 

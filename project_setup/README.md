@@ -11,7 +11,7 @@ The bootstrapper is started with a package name and a project name based on whic
 This will trigger the bootstrapper download and afterwards starts the project template creation and build.
 
 **Example build output**
-```
+```bash
 downloading gradle wrapper to '/tmp/tmp.D3QTdHbnns'
 writing temporary gradle bootstrap file to '/tmp/tmp.D3QTdHbnns/tmp.mu8PPkhs1J.gradle'
 executing temporary gradle bootstrap file '/tmp/tmp.D3QTdHbnns/tmp.mu8PPkhs1J.gradle'
@@ -34,7 +34,7 @@ BUILD SUCCESSFUL
 
 After a while, a set of projects and additional files are created in a subfolder named after your project. The files being the Gradle wrapper **(1)** for building, the build project **(2)** acting as root project for a Gradle multiple project build, the client project **(3)** and server project **(4)** for client respectively server code and finally the model project **(5)** holding the Mango DSL model for the application as well as the generated artefacts.
 
-```
+```bash
 $ ls project1/
 (1) gradle
     gradlew
@@ -46,14 +46,14 @@ $ ls project1/
 ```
 To check if everything works, change into the build project directory, build the project and start it in a Jetty container by calling:
 
-```
+```bash
 $ cd project1/project1-build/
 $ ./gradlew jettyEclipseRun
 ```
 
 After a while you are greeted with
 
-```
+```bash
 :project1-server-web:jettyEclipseRun > Running at http://localhost:9090/
 ```
 

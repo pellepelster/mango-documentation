@@ -9,7 +9,7 @@ The dictionary label describes the content of the dictionary in a way that is un
 Describing the entity/dictionary itself is analog to the entity label declaration given by the keywords **label** and **pluralLabel**
 
 **dictionary label example**
-```
+```java
 dictionary CountryDictionary {
     entity Country
 
@@ -22,7 +22,7 @@ If no **label**/**pluralLabel** is given the dictionary falls back to the entite
 To display an actual entity instance each dictionary may specify a set of controls that are used to display the entity:
 
 **dictionary label control example**
-```
+```java
 entity Country {
     string name
     string idsoCode
@@ -51,7 +51,7 @@ The above example would display an instance of the country entity for Germany (n
 If no label controls are defined the dictionary falls back to the natural key of the entity (if defined).
 
 **dictionary label control example (natural key fallback)**
-```
+```java
 entity Country {
     entityoptions {
         naturalkey {

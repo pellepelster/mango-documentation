@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Dictionary | Mango Documentation</title>
+        <title>Entity API | Mango Documentation</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.3">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../dictionary/hooks.html" />
+    <link rel="next" href="../api/webhooks.html" />
     
     
-    <link rel="prev" href="../persistence/query_language.html" />
+    <link rel="prev" href="../api/api.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="5" data-basepath=".." data-revision="1424283139137">
+    <div class="book"  data-level="7.1" data-basepath=".." data-revision="1424283139137">
     
 
 <div class="book-summary">
@@ -221,7 +221,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="5" data-path="dictionary/README.html">
+        <li class="chapter " data-level="5" data-path="dictionary/README.html">
             
                 
                     <a href="../dictionary/README.html">
@@ -330,7 +330,7 @@
                 
     
         
-        <li class="chapter " data-level="7.1" data-path="api/entity_api.html">
+        <li class="chapter active" data-level="7.1" data-path="api/entity_api.html">
             
                 
                     <a href="../api/entity_api.html">
@@ -471,10 +471,75 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_18">
+                    <section class="normal" id="section-gitbook_13">
                     
-                        <h1 id="dictionary">Dictionary</h1>
-<p>This chapter describes the UI that is build from the dictionary model.</p>
+                        <h1 id="entity-api">Entity API</h1>
+<h2 id="rest">REST</h2>
+<p>For each entity a REST API is generated that can be reached via the base URL
+<code>http://{url}/remote/api/entity/country/{action}</code> the available <code>{action}s</code> provide several way the access the entites in the system which are described in the following chapters.</p>
+<h2 id="load-by-id">Load by id</h2>
+<p>If you know the id of the entity you want to load, you can use <code>{baseUrl}/byid/{entityId}</code> followed by the entity id.</p>
+<p><strong>load by id example</strong></p>
+<pre><code>$ curl http://mango-demo-dev.elasticbeanstalk.com/remote/api/entity/country/byid/1
+
+{
+  &quot;id&quot;: 1,
+  &quot;countryIsoCode2&quot;: &quot;AF&quot;,
+  &quot;countryIsoCode3&quot;: &quot;AFG&quot;,
+  &quot;countryRating&quot;: null,
+  &quot;countryName&quot;: &quot;Afghanistan&quot;,
+  [...]
+}
+</code></pre><h2 id="load-by-natural-key">Load by natural key</h2>
+<p>If the entity has an natural key, this key can also be used to load the entity using <code>{baseUrl}/bynaturalkey/{naturalKey}</code> followed by the natural key.</p>
+<p><strong>load by natural key example</strong></p>
+<pre><code>$ curl http://mango-demo-dev.elasticbeanstalk.com/remote/api/entity/country/bynaturalkey/af
+
+{
+  &quot;id&quot;: 1,
+  &quot;countryIsoCode2&quot;: &quot;AF&quot;,
+  &quot;countryIsoCode3&quot;: &quot;AFG&quot;,
+  &quot;countryRating&quot;: null,
+  &quot;countryName&quot;: &quot;Afghanistan&quot;,
+  [...]
+}
+</code></pre><h2 id="load-by-expression">Load by expression</h2>
+<p>To load more than one entity you can use a query to match the entities send as query parameter <code>{baseUrl}/query?query={query}</code> or as content of the HTTP request.
+The expression is based on the <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html" target="_blank">Spring Expression Language (SpEL)</a>.</p>
+<p><strong>load by query expression example</strong></p>
+<pre><code>$ curl http://mango-demo-dev.elasticbeanstalk.com/remote/api/entity/country/query?query=countryName%20matches%20%27a%%27
+
+[
+    {
+      &quot;id&quot;: 1,
+      &quot;countryIsoCode2&quot;: &quot;AF&quot;,
+      &quot;countryIsoCode3&quot;: &quot;AFG&quot;,
+      [...]
+    },
+    {
+      &quot;id&quot;: 6,
+      &quot;countryIsoCode2&quot;: &quot;AS&quot;,
+      &quot;countryIsoCode3&quot;: &quot;ASM&quot;,
+      [...]
+    },
+    {
+      &quot;id&quot;: 7,
+      &quot;countryIsoCode2&quot;: &quot;VI&quot;,
+      &quot;countryIsoCode3&quot;: &quot;VIR&quot;,
+      &quot;countryRating&quot;: null,
+      &quot;countryName&quot;: &quot;Virgin Islands, U.s.&quot;,
+      [...]
+    }
+]
+</code></pre><h2 id="expressions">Expressions</h2>
+<p>The expression syntax is loosely based on Java/JavaScript (see <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html" target="_blank">SpEL documentation</a> for more info). All attributes that are modeled in the entity model can be used, combined with a set of comparators and the usual <strong>||</strong> and <strong>&amp;&amp;</strong> boolean operators as well as brackets <strong>()</strong>.</p>
+<p><strong>example expression</strong></p>
+<pre><code>countryName == &#39;France&#39; || (countryCode &gt; 23 &amp;&amp; countryName matches &#39;Ger%&#39;)
+</code></pre><h4 id="string-comparators">String comparators</h4>
+<p><strong>equals</strong></p>
+<p><code>countryName == &#39;abc&#39;</code></p>
+<p><strong>begins with</strong></p>
+<p><code>countryName matches &#39;abc%&#39;</code></p>
 
                     
                     </section>
@@ -485,10 +550,10 @@
         </div>
 
         
-        <a href="../persistence/query_language.html" class="navigation navigation-prev " aria-label="Previous page: Query Language"><i class="fa fa-angle-left"></i></a>
+        <a href="../api/api.html" class="navigation navigation-prev " aria-label="Previous page: API"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../dictionary/hooks.html" class="navigation navigation-next " aria-label="Next page: Hooks"><i class="fa fa-angle-right"></i></a>
+        <a href="../api/webhooks.html" class="navigation navigation-next " aria-label="Next page: Webhooks"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

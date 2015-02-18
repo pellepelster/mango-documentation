@@ -10,7 +10,7 @@ To get an overview over the current running configuration an overview ist dumped
 
 **Example configuration dump**
 
-```
+```bash
 =========================================================
 |                  Mango Configuration                  |
 

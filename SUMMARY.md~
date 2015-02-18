@@ -17,6 +17,6 @@
    * [Logging](services/logging.md)
 * [API](api/api.md)
    * [Entity API](api/entity_api.md)
-   * [Webhooks](api/webhooks.md)
+   * [Webooks](api/webooks.md)
 * [Configuration](configuration/README.md)
 

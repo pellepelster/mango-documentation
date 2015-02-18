@@ -13,7 +13,7 @@ The generated Java model classed also provide extensions points where you can ho
 This chapter will outline some basic functions of the UI model, for detailed descriptions of each UI  model element see the following chapters. Each UI model (from now on called dictionary) starts with the **dictionary** keyword followed by a name for the dictionary. The dictionary is the outer logical unit around the search and editor for an specific **entity** that is given by the **entity** keyword in the dictionary definition.
 
 **basic dictionary definition**
-```
+```java
 entity Entity1 {
     [...]
 }
@@ -29,7 +29,7 @@ dictionary Dictionary1 {
 There are (as in nearly every UI framework) two types of UI elements, container and controls. Controls like for example text controls/date controls/... are directly mapped to entity attributes with the matching type using the keyword **entityattribute**. Because a control for a single entity attribute is likely to be used in multiple places, the dictionary provides the possibility to define a common set of controls that may be reused in other parts of the model. The *stringAttribute1* for example may be used as a text control in a filter so search for entities with this attribute, in the search result to display the actual content and finally in the editor to edit data for this attribute.
 
 **text control definition**
-```
+```java
 entity Entity1 {
     string stringAttribute1
 }
@@ -50,7 +50,7 @@ dictionary Dictionary1 {
 The now defined control can subsequently be used in an dictionary editor definition. The following example defines an editor named *Editor1* containing one **textcontrol** that just **ref**ers  to the already defined **textcontrol** *TextControl1*.
 
 **usage of a defined text control**
-```
+```java
 [...]
 
 dictionary Dictionary1 {
@@ -72,7 +72,7 @@ dictionary Dictionary1 {
 Like datatypes the control definitions also support the a simple inheritance model, for example the maximum text length that may entered in a text control can be influenced by the **maxLength** keyword.
 
 **setting control properties**
-```
+```java
 [...]
 
 dictionary Dictionary1 {
@@ -93,7 +93,7 @@ dictionary Dictionary1 {
 Now if this control is reused somewhere this attribute may be overridden where used.
 
 **overriding a control attribute**
-```
+```java
 [...]
 
 dictionary Dictionary1 {
@@ -129,7 +129,7 @@ All control definitions share a common set of properties influencing behavior th
 The width determines the size of the input control, unit of this value is characters. So a text control having he size 12 would be big enough to show 12 characters. The width may be inherited from a datatype definition (see common datatype properties in the entity model description)
 
 **control width example**
-```
+```java
 stringdatatype StringDatatype1 {
     width 32
 }
@@ -158,7 +158,7 @@ In the above example the control *TextControl1* will have the size to display 32
 As the name say, the IntegerControl is for input of numbers without fractions. The control takes care of formatting and input validation to ensure that only valid integers are entered.
 
 **integercontrol example**
-```
+```java
 integerdatatype IntegerDatatype1 {
 }
 
@@ -184,7 +184,7 @@ Additionaly the type `rating` is supported, that (when activated) display a five
 
 **integercontrol rating example**
 
-```
+```java
 integerdatatype IntegerDatatype1 {
 }
 

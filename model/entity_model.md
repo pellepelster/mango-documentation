@@ -7,7 +7,7 @@ The basic building block you need before you start working with data when using 
 Just like in a traditional ER diagram an entity is composed of attributes and references (in ER: relationships) to other entities. The notation is loosely based Java/JavaScript class definitions, so let’s start with a minimalistic example. Entity definitions start with the keyword **entity** followed by the name of that entity.
 
 **basic entity example**
-```
+```java
 entity Entity1 {
     [...]
 }
@@ -47,7 +47,7 @@ The interesting part are the two static fields that are also generated. these tw
 Now lets add an attribute to the entity to make it finally useful:
 
 **entity attribute example**
-```
+```java
 entity Entity1 {
     string stringAttribute1
 }
@@ -117,7 +117,7 @@ entity Entity1 {
 The above example defines an string datatype that is used in the entity attribute *stringAttribute1* the generator output is exactly the same as in the above datatype less example. The fun parts begins when the extra datatype information is used.
 
 **entity datatype restrictions example**
-```
+```java
 stringdatatype StringDatatype1 {
     maxLength 42
     minLength 2
@@ -197,7 +197,7 @@ The entity model provides several options that control the general behavior of t
 The options are defined in a entity options block inside the entity definition:
 
 **entity options example**
-```
+```java
 entity Entity1 {
 
     entityoptions {
@@ -215,7 +215,7 @@ entity Entity1 {
 When an human readable representation of an entity instance is needed (the entity name itself tends to be very technical) you can model the text used for this purpose with the following options:
 
 **entity label example**
-```
+```java
 entity Entity1 {
     entityoptions {
         label "Country"
@@ -243,7 +243,7 @@ Sooner or later the data described by the datatype has to be displayed somehow t
 The most common use case for defining the width in the datatype is when the datatype is used among many different dictionaries (UI models) to avoid spreading the width definition over different places in the model and it may be overwritten later in the UI model.
 
 **datatype width example**
-```
+```java
 stringdatatype StringDatatype1 {
     width 32
 }
@@ -274,7 +274,7 @@ In the above example the control *TextControl1* will have the size to display 32
 The label property has nearly the same semantic as the previously mentioned width property. Here a label text that is used when the value described by a datatype needs to be labeled on the UI can be modeled. Controls using this datatype inherit this label and it can again be overridden in the control definition if needed.
 
 **datatype label example**
-```
+```java
 stringdatatype StringDatatype1 {
     label "Abc"
 }

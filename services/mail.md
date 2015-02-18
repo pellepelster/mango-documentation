@@ -4,7 +4,7 @@ The provided `MailService` is a thin layer above [Springs mail support](http://d
 To make the mail serviceavailable, include `MangoMailApplicationContext.xml` in your application context configuration.
 
 **Velocity mail template example**
-```
+```java
 Hello ${name},
 
 welcome to ${link}, your username is ${username}

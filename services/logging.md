@@ -22,7 +22,7 @@ logger.error("error message");
 A log viewer to view these log entries is also provided, just add the provided log module to the applications navigation tree
 
 **Log Module**
-```
+```java
 navigationnode Administration {
 	navigationnode Log {
 		moduleDefinition Log

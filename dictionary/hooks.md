@@ -6,7 +6,7 @@ See example below for a hook that gets called when the content of an editor is s
 Hook can be registered via the generated model class that provides convenient methods for registration where feasible.
 
 **dictionary hook example**
-```
+```java
 MangoDemoDictionaryModel.COUNTRY.COUNTRY_EDITOR.addEditorHook(new BaseEditorHook<CountryVO>() {
 
 	@Override
@@ -25,7 +25,7 @@ All table based containers (tables, editable tables, result tables, ...) can be 
 The CSS styling of table rows can be influenced by overriding `getStyleName` method.
 
 **row style hook example**
-```
+```java
 MangoDemoDictionaryModel.COUNTRY.COUNTRY_SEARCH.COUNTRY_RESULT.setTableHook(new BaseTableHook<CountryVO>() {
 	@Override
 	public String getStyleName(CountryVO tableRow) {
@@ -41,7 +41,7 @@ MangoDemoDictionaryModel.COUNTRY.COUNTRY_SEARCH.COUNTRY_RESULT.setTableHook(new 
 with the corresponding CSS style
 
 **row style hook example (css)**
-```
+```java
 .countryResultRow {
 	color: #ff00ff;
 }

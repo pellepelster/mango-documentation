@@ -3,7 +3,7 @@
 Each model starts with a model root marked by the keyword **project** followed by the name of the project. The project name is used in a variety of places as name for the generated artefacts.
 
 **model exmaple**
-```
+```java
 project Project1 {
 }
 ```
@@ -11,12 +11,14 @@ project Project1 {
 The above example is the smallest possible valid model. Despite no real model elements are contained in this model, the generator will nevertheless generate a bunch of artefacts.
 The artefacts are generated each time the model is changed inside Eclipse, to call the generator from command line, run
 
-```../gradlew :project1-model:build```
+```bash
+../gradlew :project1-model:build
+```
 
 inside the build project directory. After the generator run, three directories are created in the model project directory:
 
-```
-$ls project1-model
+```bash
+$ ls project1-model
 [...]
 src-gen-server
 src-gen-client-gwt
@@ -33,8 +35,8 @@ Contains all generated Spring beans, application context definitions, JPA entiti
 
 Based on the name of the project model a set of application contexts is generated, each covering a single aspect of Mangos functionality. Each file has a *-gen.xml* postfix to denote that this file is generated.
 
-```
-$ls project1-model/src-gen-server
+```bash
+$ ls project1-model/src-gen-server
 [...]
 Project1BaseApplicationContext-gen.xml
 Project1DB-gen.xml
