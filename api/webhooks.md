@@ -7,7 +7,7 @@ Webhooks are "user-defined HTTP callbacks". They are usually triggered by some e
 </cite>
 
 Mango allows the registration of those webhooks for a for a variety of events that occur inside an Mango application.
-Hooks can be either registered using a REST Api or alternativly using a UI that is included in Mango.
+Webhooks can be either registered using a REST Api or alternatively using a UI that is included in Mango.
 
 ## Entity webhook
 
@@ -75,7 +75,7 @@ A GET request to the entity webhook api show a list of all registered entity web
 
 `GET /api/entity/{entityName}/webhooks`
 
-**list entity webhooks example***
+**list entity webhooks example**
 ```bash
 curl -X GET -H "Content-Type: application/json" http://localhost:9090/remote/api/entity/country/webhooks
 [
@@ -99,7 +99,7 @@ curl -X GET -H "Content-Type: application/json" http://localhost:9090/remote/api
 
 ### Delete entity webhooks
 
-To delete an eneity webhook issue a HTTP DELETE request against the entity webhook api
+To delete an entity webhook issue a HTTP DELETE request against the entity webhook api
 using the name of the hook to delete as path parameter.
 
 `DELETE /api/entity/{entityName}/webhooks/{hookName}`

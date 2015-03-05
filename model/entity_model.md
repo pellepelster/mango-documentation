@@ -182,15 +182,40 @@ public class Entity1VO extends BaseVO implements IInfoVOEntity {
 ```
 The above code example shows the generated generic getters/setter for the entity attributes. The dictionary interpreter use these getters/setters instead of (the missing) reflection.
 
-### Entity Services
+### Entity DAO Services
 
-Two low level services provide basic persistence functions for entities/value objects, the *IBaseEntityDAO* for entities and *IBaseVODDAO* (these two are nearly identical, in fact they are derived from the same basic service interface just with different generic types for entities/value objects).
+Two low level services provide basic persistence functions for entities/value objects, the *IBaseEntityDAO* for entities and the *IBaseVODDAO* for value objects (these two are nearly identical, in fact they are derived from the same basic service interface just with different generic types for entities/value objects).
 
 The *IBaseVODAO* internally copies the data from/to the entity/value object using the copy service. Despite the fact that one the server you are free to use entities/value objects or both, it is advisable to always use the value object based *IBaseEntityService* as you would from any client side code.
 The *IBaseEntityService* provides some higher level persistence functions as well as validation based on the datatype metadata.
 
 ![mango_entity_services1.png](mango_entity_services1.png "Entity Services")
 
+As *IBaseEntityDAO* and *IBaseVODDAO* provide generic persistence functionality for all entities or value objects you may want to add specialized persistence behavior for your own entities or value objects. This can be achieved be registering an entity/value object specific *EntityDAO*/*VODAO*.
+
+For each entity an basic *Base{entity name}EntityDAO*/*Base{entity name}VODAO* is generated. This default implementation defaults to the normal entity/value object DAO behavior. You can override this default implementation to add your own business logic.
+
+**entity DAO example**
+
+To create a new entity specific DAO extend the generated *BaseDAO* for the entity:
+```java
+public class CountryEntityDAO extends BaseCountryEntityDAO {
+
+	@Override
+	public Country create(Country entity) {
+		if (entity.getCountryIsoCode2() != null) {
+			entity.setCountryIsoCode2(entity.getCountryIsoCode2().toUpperCase());
+		}
+		return super.create(entity);
+	}
+}
+```
+
+and register the DAO in your Spring application context:
+
+```xml
+<bean class="io.pelle.mango.demo.server.test.CountryEntityDAO" />
+```
 
 ### Entity Options
 The entity model provides several options that control the general behavior of the generated entities.
