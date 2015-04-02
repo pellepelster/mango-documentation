@@ -1,7 +1,7 @@
 # Mail
 
 The provided `MailService` is a thin layer above [Springs mail support](http://docs.spring.io/spring-integration/reference/html/mail.html) using [Apache Velocity](http://velocity.apache.org/) as template engine.
-To make the mail serviceavailable, include `MangoMailApplicationContext.xml` in your application context configuration.
+To make the mail service available, include `MangoMailApplicationContext.xml` in your application context configuration.
 
 **Velocity mail template example**
 ```java
