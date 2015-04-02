@@ -15,7 +15,7 @@
 * [Services](services/README.md)
    * [Mail](services/mail.md)
    * [Logging](services/logging.md)
-   * Properties
+   * [Properties](properties.md)
 * [API](api/api.md)
    * [Entity API](api/entity_api.md)
    * [Webhooks](api/webhooks.md)
