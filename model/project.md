@@ -8,7 +8,7 @@ project Project1 {
 }
 ```
 
-The above example is the smallest possible valid model. Despite no real model elements are contained in this model, the generator will nevertheless generate a bunch of artefacts.
+The above example is the smallest possible valid model. Despite no real model elements are contained in this model, the generator will nevertheless generate a bunch of artifacts.
 The artefacts are generated each time the model is changed inside Eclipse, to call the generator from command line, run
 
 ```bash
@@ -77,5 +77,5 @@ Also a complete copy of the UI model in the form of Java classes that can be und
 
 ### XML Artifacts (src-gen-xml)
 
-For each entity from the model a XML schema as well as a WSDL definition is generated that uses these schemas to provide import/export webservices for these entities.
+For each entity from the model a XML schema as well as a WSDL definition is generated that uses these schemes to provide import/export webservices for these entities.
 
