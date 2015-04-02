@@ -2,7 +2,7 @@
 
 ## Quickstart
 
-Of course you can set up up the projects from scratch using the Eclipse new project wizard and write all files by hand. But because its easier and faster, we will begin with the Mango bootstrapper who will create a basic project setup to get you started.
+Of course you can set up the projects from scratch using the Eclipse new project wizard and write all files by hand. But because its easier and faster, we will begin with the Mango bootstrapper who will create a basic project setup to get you started.
 
 The bootstrapper is started with a package name and a project name based on which the projects will be created. To create an example project named Project1 with the root package path org.example.Project1 call the bootstrapper like this:
 
