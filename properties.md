@@ -23,5 +23,21 @@ String dbproperty = propertyService.getProperty(DB_PROPERTY);
 ```
 
 ## Setting default values
+
+Useful defaults for your properties can be defined using the `default(...)` method.
+
+** string property with a default **
+```
+IProperty<String> DB_PROPERTY = PropertyBuilder.createStringProperty("dbproperty").default("abcdef").database();
+
+IPropertyService propertyService = [...];
+
+// retrieve the previously set value
+String dbproperty = propertyService.getProperty(DB_PROPERTY);
+
+assertEquals("abcdef", dbproperty);
+
+```
+
 ## Setting fallback values
 ## Adding properties to the web UI
