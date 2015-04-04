@@ -30,9 +30,7 @@ Useful defaults for your properties can be defined using the `default(...)` meth
 ```
 IProperty<String> DB_PROPERTY = PropertyBuilder.createStringProperty("dbproperty").default("abcdef").database();
 
-IPropertyService propertyService = [...];
-
-// retrieve the previously set value
+// property is not set and returns the default 'abcdef'
 String dbproperty = propertyService.getProperty(DB_PROPERTY);
 
 assertEquals("abcdef", dbproperty);
