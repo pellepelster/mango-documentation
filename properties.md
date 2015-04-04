@@ -9,7 +9,7 @@ Each property is identified by an unique key that is used on the command line/ap
 Furthermore an extra name may be defined that is used as a human readable description for the (in most cases) more technical key. 
 Starting point to create a new property is the `PropertyBuilder`, see below for a simple example.
 
-** simple string property stored inside the database **
+** simple string database property **
 ```
 IProperty<String> DB_PROPERTY = PropertyBuilder.createStringProperty("dbproperty").name("our first database property").database();
 
@@ -34,8 +34,43 @@ IProperty<String> DB_PROPERTY = PropertyBuilder.createStringProperty("dbproperty
 String dbproperty = propertyService.getProperty(DB_PROPERTY);
 
 assertEquals("abcdef", dbproperty);
-
 ```
 
 ## Setting fallback values
+
+Another option to deal wit unset properties is to define a fallback that is used if the property is not set.
+
+### Fallback to another backend.
+
+Fallback to another backend using the same property key is configured using the `database()`, `system()` or `spring()` methods. 
+
+** string database property with a system property fallback **
+```
+IProperty<String> DB_PROPERTY = PropertyBuilder.createStringProperty("dbproperty").database().fallbackToSystem();
+
+// assuming the web container was started with '-Ddbproperty=ghijkl' the value will be taken from the system property because the database property is not defined
+String dbproperty = propertyService.getProperty(DB_PROPERTY);
+
+assertEquals("ghijkl", dbproperty);
+```
+
+## Fallback to another property
+
+It is also possible to fallback to another property (of the same type) using the `fallback(...)` method. 
+
+** string database property with fallback to another property **
+```
+IProperty<String> DB_PROPERTY_DEFAULT = PropertyBuilder.createStringProperty("dbproperty.default").database(;
+
+IProperty<String> DB_PROPERTY = PropertyBuilder.createStringProperty("dbproperty").database().fallback(DB_PROPERTY_DEFAULT);
+
+// set the fallback value
+propertyService.setProperty(DB_PROPERTY_DEFAULT, "mnopqrs");
+
+// retrieve the value
+String dbproperty = propertyService.getProperty(DB_PROPERTY);
+
+assertEquals("mnopqrs", dbproperty);
+```
+
 ## Adding properties to the web UI
