@@ -11,7 +11,7 @@ Starting point to create a new property is the `PropertyBuilder`, see below for 
 
 ** simple string property stored inside the database **
 ```
-IProperty<String> DB_PROPERTY = PropertyBuilder.createStringProperty("dbproperty").database();
+IProperty<String> DB_PROPERTY = PropertyBuilder.createStringProperty("dbproperty").name("our first database property").database();
 
 IPropertyService propertyService = [...];
 
@@ -21,3 +21,7 @@ propertyService.setProperty(DB_PROPERTY, "my property");
 // retrieve the previously set value
 String dbproperty = propertyService.getProperty(DB_PROPERTY);
 ```
+
+## Setting default values
+## Setting fallback values
+## Adding properties to the web UI
