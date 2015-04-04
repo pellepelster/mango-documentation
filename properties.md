@@ -74,3 +74,35 @@ assertEquals("mnopqrs", dbproperty);
 ```
 
 ## Adding properties to the web UI
+
+To activate the web UI add the module to your navigation tree. 
+
+** navigation node for the property module **
+```
+navigationnode Properties {
+	moduleDefinition Property
+}
+```
+
+Then in your client code add your properties to the `PropertyProvider`. Properties can be grouped logically into categories which will display them in separate tabs in a tabfolder.  
+
+** example for property web UI configuration **
+```
+IProperty<String> STRING_PROPERTY1 = ...
+IProperty<String> INTEGER_PROPERTY2 = ...
+IProperty<String> BOOLEAN_PROPERTY3 = ...
+IProperty<String> STRING_PROPERTY4 = ...
+IProperty<String> STRING_PROPERTY5 = ...
+IProperty<String> STRING_PROPERTY6 = ...
+
+IPropertyCategory category1 = PropertyProvider.getInstance().createCategory("category1");
+
+category1.addProperty(STRING_PROPERTY1);
+category1.addProperty(INTEGER_PROPERTY2);
+category1.addProperty(BOOLEAN_PROPERTY3);
+
+IPropertyCategory category2 = PropertyProvider.getInstance().createCategory("category2");
+category2.addProperty(STRING_PROPERTY4);
+category2.addProperty(STRING_PROPERTY5);
+category2.addProperty(STRING_PROPERTY6);
+		```
