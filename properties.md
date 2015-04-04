@@ -1,6 +1,6 @@
 # Properties
 
-Mango includes everything needed to equip your application with configuration options. Parameterization is supported from the command line using Java system properties, using Spring properties from the application context and of course storage in the database.
+Mango includes everything needed to equip your application with configuration options. Parameterization is supported from the command line using Java system properties, using Spring properties from the application context and of course from the database.
 The properties are defined using a Java based DSL and support features like fallback to other properties if property is undefined, default vales and a web interface to change properties in the frontend.
 There are three sources of property values the database, Java system properties (-D parameter) of Spring properties. The Mango property builder lets you define properties for one of this three sources and darüberhinaus supports the definiion of fallback and default values.
 
