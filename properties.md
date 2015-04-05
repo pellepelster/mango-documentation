@@ -105,4 +105,7 @@ IPropertyCategory category2 = PropertyProvider.getInstance().createCategory("cat
 category2.addProperty(STRING_PROPERTY4);
 category2.addProperty(STRING_PROPERTY5);
 category2.addProperty(STRING_PROPERTY6);
-		```
+```
+** example of the property web ui **
+![example of the property web ui](mango_properties.png)
+		
