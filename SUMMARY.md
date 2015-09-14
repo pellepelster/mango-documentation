@@ -8,6 +8,7 @@
    * [Entity Model](model/entity_model.md)
    * [Dictionary Model](model/dictionary_model.md)
    * [UI Model](model/ui_model.md)
+       * Dictionary Model
 * [Persistence](persistence/README.md)
    * [Query Language](persistence/query_language.md)
 * [Dictionary](dictionary/README.md)
