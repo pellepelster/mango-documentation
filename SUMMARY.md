@@ -6,7 +6,6 @@
 * [The Model](model/README.md)
    * [Project](model/project.md)
    * [Entity Model](model/entity_model.md)
-   * [Dictionary Model](model/dictionary_model.md)
    * [UI Model](model/ui_model.md)
        * [Dictionary Model](dictionary_model.md)
 * [Persistence](persistence/README.md)
