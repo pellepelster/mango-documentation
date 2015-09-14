@@ -57,4 +57,4 @@ After a while you are greeted with
 :project1-server-web:jettyEclipseRun > Running at http://localhost:9090/
 ```
 
-Open the url with the browser of yout choice and you will see the running example application.
+Open the URL with the browser of your choice and you will see the running example application.
