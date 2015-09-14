@@ -1,4 +1,4 @@
-# UI
+# UI Model
 
 The overall goal for the UI DSL is to provide a simple generic way to **C**reate **R**ead **U**pdate and **D**elete data entities (which also are modeled in the same DSL, see [Entity Model]).
 Each generic UI is divided in two parts, first the search which is made up of a filter where filter criteria can be entered and the result table listing the actual search results for all entities matching the filter criteria. The found entity data then can be opened in an editor that provides facilities to edit and save the data or to create new entities.
