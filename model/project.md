@@ -1,4 +1,4 @@
-# Project
+# Project Model
 
 Each model starts with a model root marked by the keyword **project** followed by the name of the project. The project name is used in a variety of places as name for the generated artefacts.
 
