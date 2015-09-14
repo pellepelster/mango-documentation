@@ -2,7 +2,7 @@
 
 ## Quickstart
 
-Of course you can set up the projects from scratch using the Eclipse new project wizard and write all files by hand. But because its easier and faster, we will begin with the Mango bootstrapper who will create a basic project setup to get you started.
+Of course you can set up the projects from scratch using the Eclipse new project wizard and write all files by hand. But because its easier and faster, we will begin with the Mango bootstrapper which will create a basic project setup to get you started.
 
 The bootstrapper is started with a package name and a project name based on which the projects will be created. To create an example project named Project1 with the root package path org.example.Project1 call the bootstrapper like this:
 
@@ -32,7 +32,7 @@ copying templates to /home/pelle/tmp/project1
 BUILD SUCCESSFUL
 ```
 
-After a while, a set of projects and additional files are created in a subfolder named after your project. The files being the Gradle wrapper **(1)** for building, the build project **(2)** acting as root project for a Gradle multiple project build, the client project **(3)** and server project **(4)** for client respectively server code and finally the model project **(5)** holding the Mango DSL model for the application as well as the generated artefacts.
+After a while, a set of projects and additional files are created in a subfolder named after your project. The files being the Gradle wrapper **(1)** for building, the build project **(2)** acting as root project for a Gradle multiple project build, the client project **(3)** and server project **(4)** for client respectively server code and finally the model project **(5)** holding the Mango DSL model for the application as well as the generated artifacts.
 
 ```bash
 $ ls project1/
