@@ -18,7 +18,7 @@ If you want to start with a prebuilt Eclipse just download the right one for you
 
 ### Manual Installation
 
-If you go for manual installation, just add the update sites for the needed prerequisites to your Eclipse IDEand install the required software.
+If you go for manual installation, just add the update sites for the needed prerequisites to your Eclipse IDE and install the required software.
 
 #### Xtext
 
