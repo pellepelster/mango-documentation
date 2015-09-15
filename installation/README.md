@@ -4,7 +4,7 @@
 
 This chapter will provide you with an overview of the steps needed to get started with the Mango framework.
 Mango tries to minimize it's prerequisites to ease and speed up the initial setup. 
-To set up Eclipse you have two options, you can either install everything needed by hand or just download a prebuilt Eclipse distribution containing everything needed, including Mango.
+To set up Eclipse you have two options, you can either install everything needed by hand or just download a pre-built Eclipse distribution containing everything needed, including Mango.
 
 ### Prebuilt Eclipse distribution
 If you want to start with a prebuilt Eclipse just download the right one for your environment, unzip it, and you are ready to go!
