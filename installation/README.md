@@ -9,9 +9,9 @@ To set up Eclipse you have two options, you can either install everything needed
 ### Prebuilt Eclipse distribution
 If you want to start with a prebuilt Eclipse just download the right one for your environment, unzip it, and you are ready to go!
 
-| 64 bit | 32 bit |
-| -- | -- |
-| [Linux 64 bit](http://zoidberg.pelle.io/jenkins/job/mango-ci-eclipse-distributions/lastSuccessfulBuild/artifact/mango-eclipse-distributions/mango-eclipse-linux-gtk-x86_64.tar.gz) | [Linux 32 bit](http://zoidberg.pelle.io/jenkins/job/mango-ci-eclipse-distributions/lastSuccessfulBuild/artifact/mango-eclipse-linux-gtk-x86.tar.gz) |
+| 64 bit  |
+| -- |
+| [Linux 64 bit](http://zoidberg.pelle.io/jenkins/job/mango-ci-eclipse-distributions/lastSuccessfulBuild/artifact/mango-eclipse-distributions/mango-eclipse-linux-gtk-x86_64.tar.gz) | 
 | [OS X 64 bit](http://zoidberg.pelle.io/jenkins/job/mango-ci-eclipse-distributions/lastSuccessfulBuild/artifact/mango-eclipse-distributions/mango-eclipse-macosx-cocoa-x86_64.app.tar.gz) |
 | [Windows 64 bit](http://zoidberg.pelle.io/jenkins/job/mango-ci-eclipse-distributions/lastSuccessfulBuild/artifact/mango-eclipse-distributions/mango-eclipse-win32-x86_64.zip)
 
