@@ -8,7 +8,7 @@
    * [Entity Model](model/entity_model.md)
    * [UI Model](model/ui_model.md)
        * [Dictionary Model](dictionary_model.md)
-           * Container
+           * [Container](container.md)
 * [Persistence](persistence/README.md)
    * [Query Language](persistence/query_language.md)
 * [Dictionary](dictionary/README.md)
