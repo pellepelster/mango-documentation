@@ -18,7 +18,7 @@ dictionary CountryDictionary {
     pluralLabel "Countries"
 }
 ```
-If no **label**/**pluralLabel** is given the dictionary falls back to the entites label/pluralLabel.
+If no **label**/**pluralLabel** is given the dictionary falls back to the entities label/pluralLabel.
 
 To display an actual entity instance each dictionary may specify a set of controls that are used to display the entity:
 
