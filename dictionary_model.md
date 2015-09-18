@@ -23,7 +23,7 @@ To display an actual entity instance each dictionary may specify a set of contro
 ```java
 entity Country {
     string name
-    string idsoCode
+    string isoCode
 }
 
 dictionary Country {
