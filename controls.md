@@ -129,6 +129,8 @@ In the above example the control *TextControl1* will have the size to display 32
 
 #### Readonly
 
+## Control Types
+
 ### IntegerControl
 
 As the name say, the IntegerControl is for input of numbers without fractions. The control takes care of formatting and input validation to ensure that only valid integers are entered.
