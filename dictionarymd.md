@@ -1,7 +1,22 @@
-
 # Dictionary
 
 The dictionary model is to outer bracket around all model elements that build an UI model for an entity.
+The entity that is manged by the dictionary is specified using the **entity** keyword in the dictionary definition.
+
+**basic dictionary definition**
+```java
+entity Entity1 {
+    [...]
+}
+
+dictionary Dictionary1 {
+
+    entity Entity1
+
+    [...]
+}
+```
+
 
 ## Label
 
