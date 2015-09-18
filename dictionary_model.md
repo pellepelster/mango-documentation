@@ -4,7 +4,7 @@ The dictionary model is to outer bracket around all model elements that build an
 
 ## Label
 
-The dictionary label describes the content of the dictionary in a way that is understandable for the user. There are two usecases for the dictionary label, for once describing the nature of the dictionary itself (e.g. *Country*, *Currency*, ...) and on the other hand giving a understanable represention for the instance of an  entity that is manged by the dictionary (e.g. *Germany*, *Euro*).
+The dictionary label describes the content of the dictionary in a way that is understandable for the user. There are two use-cases for the dictionary label, for once describing the nature of the dictionary itself (e.g. *Country*, *Currency*, ...) and on the other hand giving a understanable represention for the instance of an  entity that is manged by the dictionary (e.g. *Germany*, *Euro*).
 
 Describing the entity/dictionary itself is analog to the entity label declaration given by the keywords **label** and **pluralLabel**
 
