@@ -17,6 +17,7 @@ dictionary CountryDictionary {
     label "Country"
     pluralLabel "Countries"
 }
+
 ```
 If no **label**/**pluralLabel** is given the dictionary falls back to the entities label/pluralLabel.
 
