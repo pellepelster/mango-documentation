@@ -1,4 +1,4 @@
-# Dictionary Model
+# Dictionary
 
 The dictionary model is the bracket around all model elements that build an UI model for an entity.
 
