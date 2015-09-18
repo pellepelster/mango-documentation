@@ -9,6 +9,7 @@
    * [UI Model](model/ui_model.md)
        * [Dictionary](dictionarymd.md)
            * [Container](container.md)
+           * Controls
 * [Persistence](persistence/README.md)
    * [Query Language](persistence/query_language.md)
 * [Dictionary](dictionary/README.md)
