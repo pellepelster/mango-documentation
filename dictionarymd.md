@@ -17,7 +17,6 @@ dictionary Dictionary1 {
 }
 ```
 
-
 ## Label
 
 The dictionary label describes the content of the dictionary in a way that is understandable for the user. There are two use cases for the dictionary label, for once describing the nature of the dictionary itself (e.g. *Country*, *Currency*, ...) and on the other hand giving a understandable representation for the instance of an entity that is manged by the dictionary (e.g. *Germany*, *Euro*).
